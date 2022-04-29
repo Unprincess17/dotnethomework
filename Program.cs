@@ -1,35 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace dotnet
+
+namespace SimpleCrawler
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// 应用程序的主入口点。
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            int s1=0,s2=0,sd=0;
-            string op="+";
-            Console.WriteLine("s1: ");
-            s1 = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("operator: ");
-            op = Console.ReadLine();
-            Console.WriteLine("s2: ");
-            s2 = Int32.Parse(Console.ReadLine());
-            switch (op[0])
-            {
-                case '+':
-                    sd = s1 + s2;
-                    break;
-                case '-':
-                    sd = s1 - s2;
-                    break;
-                case '*':
-                    sd = s1 * s2;
-                    break;
-                case '/':
-                    sd = s2 == 0 ? 0 : s1 / s2;
-                    break;
-            }
-            Console.WriteLine($"output: {sd}");
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+            //Crawler c1 = new Crawler("http://www.baidu.com", "http://www.baidu.com", 10);
+
         }
     }
 }
